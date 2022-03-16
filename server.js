@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 const path = require("path")
+const cors = require("cors")
 
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`serving on ::${server.address().port}`);
 });
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 
+app.use(cors({
+  origin: "*"
+}))
 app.use(express.static(path.join(__dirname, "/public")));
 console.clear();
 
