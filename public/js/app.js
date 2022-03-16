@@ -1,6 +1,5 @@
 {
   const input = document.querySelector(".mes");
-  const name = document.querySelector(".name-input");
   const sock = io("http://127.0.0.1:3000/");
 
   function send() {
@@ -12,11 +11,10 @@
   let section = document.querySelector(".messages");
 
   sock.on("new_message", function (data) {
-    console.log("Server says : " + data);
     section.innerHTML += `
     <div class="message">
-      <h3 class="name">${data.username}</h3>
-      <h3 class="text">${data.message}</h3>
+      <h3 class="name">${data[1]}</h3>
+      <h3 class="text">${data[0].message}</h3>
     </div>
   `;
   });

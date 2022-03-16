@@ -1,6 +1,6 @@
 :root {
   --font: "Nunito";
-  --blue: #0099e5;
+  --black: #333;
 }
 
 * {
@@ -20,8 +20,8 @@ nav,
 /* nav */
 nav,
 .input-section {
-  height: 12vh;
-  background-color: var(--blue);
+  height: 10vh;
+  background-color: var(--black);
 }
 .sigma-chat {
   color: white;
@@ -30,7 +30,7 @@ nav,
 }
 .start-chatting {
   background-color: white;
-  color: var(--blue);
+  color: var(--black);
   padding: 10px;
   font-weight: 700;
   border: none;
@@ -40,7 +40,7 @@ nav,
 /* messages */
 section {
   padding: 1em;
-  height: 76vh;
+  height: 80vh;
   background-color: var(--rose);
   overflow-y: scroll;
 }
@@ -67,14 +67,14 @@ section {
 
 /* input */
 .input-section {
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 .input-section form {
-  background-color: var(--blue);
+  background-color: var(--black);
   width: 100%;
   margin: 0 auto;
   display: none;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: 1em;
 }
 .input-section form.active {
@@ -98,4 +98,14 @@ input:focus {
   border: none;
   color: #333;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  nav,
+  .input-section {
+    height: 10vh;
+  }
+  section {
+    height: 74vh;
+  }
 }
