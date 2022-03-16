@@ -6,7 +6,7 @@ const cors = require("cors")
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`serving on ::${server.address().port}`);
 });
-const io = require("socket.io")(server, { cors: { origin: "*" } });
+const io = require("socket.io")(server, { cors: { origin: "*:*" } });
 
 app.use(cors({
   origin: "*"
