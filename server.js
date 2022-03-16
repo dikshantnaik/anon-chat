@@ -1,16 +1,9 @@
 const express = require("express");
 const app = express();
+const http = require("http").createServer(app);
+const io = require("socket.io")(http, { cors: { origin: "*" } });
 const path = require("path")
-const cors = require("cors")
 
-const server = app.listen(3000, () => {
-  console.log(`serving on ::${server.address().port}`);
-});
-const io = require("socket.io")(server, { cors: { origin: "*:*" } });
-
-app.use(cors({
-  origin: "*"
-}))
 app.use(express.static(path.join(__dirname, "/public")));
 console.clear();
 
@@ -24,3 +17,7 @@ app.get("/", (req, res) => {
   res.status(200).sendFile("index.html");
 });
 
+let PORT = 3000;
+http.listen(PORT, () => {
+  console.log(`serving on ::${PORT}`);
+});
