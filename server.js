@@ -2,9 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path")
 
-let PORT = 3000;
-const server = app.listen(PORT, () => {
-  console.log(`serving on ::${PORT}`);
+const server = app.listen(process.env.PORT || 3000, () => {
+  console.log(`serving on ::${server.address().port}`);
 });
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 
