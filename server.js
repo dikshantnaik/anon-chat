@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 io.on("connection", (socket) => {
     socket.on("new_message", (data) => {
-        io.emit("new_message", [data, socket.id]);
+        io.emit("new_message", [data, Date.now()]);
     });
 });
 let PORT = 3000;
